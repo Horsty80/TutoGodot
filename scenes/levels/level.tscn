@@ -1,42 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnesm5k114bqd"]
+[gd_scene load_steps=3 format=3 uid="uid://dnesm5k114bqd"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_bbsn0"]
-[ext_resource type="Texture2D" uid="uid://cluy2h4xkvxkq" path="res://graphics/objects/gate.png" id="3_t6ofa"]
 [ext_resource type="PackedScene" uid="uid://dfolm2001jpjt" path="res://scenes/player/player.tscn" id="4_3xxgi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5voik"]
-size = Vector2(850, 271)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_bbsn0")
 
-[node name="Gate" type="StaticBody2D" parent="."]
+[node name="Ground" type="Node2D" parent="."]
 
-[node name="Gate" type="Sprite2D" parent="Gate"]
-position = Vector2(559, -428)
-texture = ExtResource("3_t6ofa")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gate"]
-polygon = PackedVector2Array(-873, -1194, -876, 134, -854, 198, -839, 232, -793, 287, -742, 319, -683, 343, -626, 353, 192, 352, 193, 87, 1047, 94, 1049, 351, 1914, 348, 1986, 325, 2029, 302, 2060, 261, 2082, 231, 2100, 190, 2110, 167, 2116, 147, 2114, -1198)
-
-[node name="Area2D" type="Area2D" parent="Gate"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/Area2D"]
-position = Vector2(620, 299.5)
-shape = SubResource("RectangleShape2D_5voik")
+[node name="Projectiles" type="Node2D" parent="."]
+position = Vector2(79, -7)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_3xxgi")]
-position = Vector2(339, 193)
+position = Vector2(601, 595)
 
-[node name="Timer" type="Timer" parent="Player"]
-wait_time = 0.5
-one_shot = true
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
 
-[node name="GrenadeReloadTimer" type="Timer" parent="Player"]
-wait_time = 2.0
-one_shot = true
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.988235, 0.819608, 0.701961, 1)
+energy = 0.5
+blend_mode = 1
 
-[connection signal="body_entered" from="Gate/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Gate/Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="Player/Timer" to="Player" method="_on_laser_timer_timeout"]
-[connection signal="timeout" from="Player/GrenadeReloadTimer" to="Player" method="_on_grenade_timer_timeout"]
+[connection signal="shoot_grenade" from="Player" to="." method="_on_player_shoot_grenade"]
+[connection signal="shoot_lazer" from="Player" to="." method="_on_player_shoot_lazer"]

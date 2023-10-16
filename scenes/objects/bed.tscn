@@ -8,6 +8,8 @@
 size = Vector2(628, 365.5)
 
 [node name="Bed" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="BedImage" type="Sprite2D" parent="."]
 position = Vector2(492, 330)
