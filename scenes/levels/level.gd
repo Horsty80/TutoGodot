@@ -18,14 +18,4 @@ func _on_player_shoot_grenade(pos, direction):
 	grenade.linear_velocity = direction * grenade.speed
 #	var laser = laser_scene.instantiate()
 	$Projectiles.add_child(grenade)
-
-func _on_house_body_entered(_body):
-	var tween = get_tree().create_tween()
-	tween.set_parallel(true)
-	tween.set_loops()
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(1,1), 1)
-	tween.tween_property($Player/Camera2D, "modulate:a",0, 2)
-
-func _on_house_body_exited(_body):
-	var tween = get_tree().create_tween()
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.6,0.6), 2)
+	

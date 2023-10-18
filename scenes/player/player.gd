@@ -11,6 +11,7 @@ var speed: int = max_speed
 func _process(_delta):
 	# input
 	var direction = Input.get_vector("left", "right", "up", "down")
+	
 	velocity = direction * speed
 	move_and_slide()
 	
