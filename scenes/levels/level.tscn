@@ -10,6 +10,8 @@ script = ExtResource("1_bbsn0")
 
 [node name="Ground" type="Node2D" parent="."]
 
+[node name="Items" type="Node2D" parent="."]
+
 [node name="Projectiles" type="Node2D" parent="."]
 position = Vector2(79, -7)
 metadata/_edit_lock_ = true

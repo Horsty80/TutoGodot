@@ -1,17 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bochxotu0qw54"]
+[gd_scene load_steps=6 format=3 uid="uid://bochxotu0qw54"]
 
 [ext_resource type="PackedScene" uid="uid://dp8nibh3lnpx3" path="res://scenes/container/item_container_scene.tscn" id="1_4h8sh"]
 [ext_resource type="Script" path="res://scenes/container/toilet.gd" id="2_7dybd"]
 [ext_resource type="Texture2D" uid="uid://braurav2oiu65" path="res://graphics/objects/toilet.png" id="2_86vvf"]
+[ext_resource type="Texture2D" uid="uid://dpm1s1m2alxwk" path="res://graphics/objects/lid.png" id="4_3xge2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ukno2"]
 radius = 112.872
 
 [node name="Toilet" instance=ExtResource("1_4h8sh")]
+rotation = -1.09956
 script = ExtResource("2_7dybd")
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="BaseSprite" parent="." index="0"]
 texture = ExtResource("2_86vvf")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="LidSprite" parent="." index="1"]
+position = Vector2(0.254616, 33.5401)
+texture = ExtResource("4_3xge2")
+
+[node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_ukno2")
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]
+position = Vector2(1.48511, 77.8061)
