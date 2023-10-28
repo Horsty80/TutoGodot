@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnesm5k114bqd"]
+[gd_scene load_steps=5 format=3 uid="uid://dnesm5k114bqd"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_bbsn0"]
 [ext_resource type="PackedScene" uid="uid://dfolm2001jpjt" path="res://scenes/player/player.tscn" id="4_3xxgi"]
+[ext_resource type="PackedScene" uid="uid://lmp1iacn6k3o" path="res://scenes/user interface/ui.tscn" id="4_nbq5y"]
 [ext_resource type="PackedScene" uid="uid://cushmv8b85bmw" path="res://scenes/objects/light_fan_animation.tscn" id="13_yckxl"]
 
 [node name="Level" type="Node2D"]
@@ -32,6 +33,8 @@ position_smoothing_enabled = true
 color = Color(0.988235, 0.819608, 0.701961, 1)
 energy = 0.5
 blend_mode = 1
+
+[node name="UI" parent="." instance=ExtResource("4_nbq5y")]
 
 [connection signal="shoot_grenade" from="Player" to="." method="_on_player_shoot_grenade"]
 [connection signal="shoot_lazer" from="Player" to="." method="_on_player_shoot_lazer"]

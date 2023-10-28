@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://deidb6cyp1miy"]
+[gd_scene load_steps=13 format=3 uid="uid://deidb6cyp1miy"]
 
 [ext_resource type="PackedScene" uid="uid://dnesm5k114bqd" path="res://scenes/levels/level.tscn" id="1_khqdd"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_du0an"]
+[ext_resource type="PackedScene" uid="uid://crxvavqg4avda" path="res://scenes/levels/outside.tscn" id="3_4c724"]
 [ext_resource type="Texture2D" uid="uid://cxqlsjk82mmpn" path="res://graphics/ground/dirt.png" id="3_fl0cy"]
 [ext_resource type="TileSet" uid="uid://c3evi60j5sqrj" path="res://scenes/levels/house.tres" id="4_jlpu7"]
 [ext_resource type="PackedScene" uid="uid://mt7tv1848p4u" path="res://scenes/objects/wall_light.tscn" id="5_nn0m0"]
@@ -16,6 +17,7 @@ size = Vector2(753.5, 367)
 
 [node name="Inside" instance=ExtResource("1_khqdd")]
 script = ExtResource("2_du0an")
+outside_level_scene = ExtResource("3_4c724")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
